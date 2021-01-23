@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+
+    # 3rd party package
     'ckeditor',
+    
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+
+

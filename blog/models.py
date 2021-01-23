@@ -9,9 +9,6 @@ class UserProfile(models.Model):
     avatar = models.ImageField(upload_to='user_avatar/', null=False, blank=False)
     bio = models.TextField(max_length=250 , null=False, blank=False)
 
-    def __str__(self):
-        return self.user.first_name
-
 
 class Article(models.Model):
     title = models.CharField(max_length=128, null=False, blank=False)
@@ -21,13 +18,7 @@ class Article(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
-
 
 class Category(models.Model):
     title = models.CharField(max_length=128, null=False, blank=False)
     cover = models.ImageField(upload_to='category_cover/', null=False, blank=False)
-
-    def __str__(self):
-        return self.title
