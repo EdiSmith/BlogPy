@@ -20,6 +20,7 @@ class Article(models.Model):
     created_at = models.DateTimeField(default=timezone.now, )
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    promote = models.BooleanField(default=False)
 
 
 class Category(models.Model):

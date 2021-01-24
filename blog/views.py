@@ -17,8 +17,26 @@ class IndexPage(TemplateView):
                 'category': article.category.title,
                 'created_at': article.created_at.date(),
             })
+        
+        promote_data = []
+        article_all_promote = Article.objects.filter(promote=True)
 
+        for promote_article in article_all_promote:
+            promote_data.append({
+                'title': promote_article.title,
+                'cover': promote_article.cover.url,
+                'category': promote_article.category.title,
+                'created_at': promote_article.created_at.date(),
+                'author': promote_article.author.user.first_name + " " + promote_article.author.user.last_name ,
+                'avatar': promote_article.author.avatar.url,
+            })
+
+        
         context = {
             'article_data': article_data,
+            'promote_data': promote_data,
         }
         return render(request, 'index.html', context)
+
+class ContactPage(TemplateView):
+    template_name = 'page-contact.html'
