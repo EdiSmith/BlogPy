@@ -1,6 +1,6 @@
-from django.conf.urls import url
+from django.urls import path
 from .views import IndexPage
 
 urlpatterns = [
-    url(r'^', IndexPage.as_view(), name='index'),
+    path('', IndexPage.as_view(), name='index'),
 ]
