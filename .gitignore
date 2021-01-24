@@ -3,6 +3,7 @@
 __pycache__
 db.sqlite3
 static
+staticfiles
 media
 docker-compose.yml
 .env
