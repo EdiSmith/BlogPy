@@ -1,7 +1,11 @@
 from django.urls import path
-from .views import IndexPage, ContactPage
+from django.conf.urls import url
+from .views import IndexPage, AllArticleAPIView, ContactPage, SingleArticleAPIView
+
 
 urlpatterns = [
-    path('', IndexPage.as_view(), name='index'),
     path('contact/', ContactPage.as_view(), name='contact'),
+    url(r'^$', IndexPage.as_view(), name='index'),
+    url(r'^article/$', SingleArticleAPIView.as_view(), name='single_article'),
+    url(r'^article/all/$', AllArticleAPIView.as_view(), name='all_articles'),
 ]
